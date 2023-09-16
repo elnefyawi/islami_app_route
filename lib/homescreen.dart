@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app_route_1/hadeth/hadeth_tab.dart';
+import 'package:islami_app_route_1/quran/quran_tab.dart';
+import 'package:islami_app_route_1/radio/redio_tab.dart';
+import 'package:islami_app_route_1/sebha/sebha_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreen';
@@ -55,8 +59,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: 'Radio'),
                 ]),
           ),
+          body: tabs[selectedIndex],
         )
       ],
     );
   }
+
+  List<Widget> tabs = [QuranTab(), HadethTab(), SebhaTab(), RedioTab()];
 }
