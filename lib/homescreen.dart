@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreen';
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +30,30 @@ class HomeScreen extends StatelessWidget {
           bottomNavigationBar: Theme(
             data: Theme.of(context)
                 .copyWith(canvasColor: Theme.of(context).primaryColor),
-            child: BottomNavigationBar(items: [
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/icon_quran.png')),
-                  label: 'Quran'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/icon_hadeth.png')),
-                  label: 'Hadeth'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/icon_sebha.png')),
-                  label: 'Sebha'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/icon_radio.png')),
-                  label: 'Radio'),
-            ]),
+            child: BottomNavigationBar(
+                currentIndex: selectedIndex,
+                onTap: (index) {
+                  selectedIndex = index;
+                  setState(() {});
+                },
+                items: const [
+                  BottomNavigationBarItem(
+                      icon:
+                          ImageIcon(AssetImage('assets/images/icon_quran.png')),
+                      label: 'Quran'),
+                  BottomNavigationBarItem(
+                      icon: ImageIcon(
+                          AssetImage('assets/images/icon_hadeth.png')),
+                      label: 'Hadeth'),
+                  BottomNavigationBarItem(
+                      icon:
+                          ImageIcon(AssetImage('assets/images/icon_sebha.png')),
+                      label: 'Sebha'),
+                  BottomNavigationBarItem(
+                      icon:
+                          ImageIcon(AssetImage('assets/images/icon_radio.png')),
+                      label: 'Radio'),
+                ]),
           ),
         )
       ],
