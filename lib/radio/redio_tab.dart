@@ -16,7 +16,7 @@ class RedioTab extends StatelessWidget {
               bottom: MediaQuery.of(context).size.height * 0.04,
             ),
             child: Text(
-              'اذاعة القران الكريم',
+              ' اذاعة القران الكريم ',
               style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             )),
