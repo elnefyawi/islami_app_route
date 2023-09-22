@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app_route_1/my_theme.dart';
 
 class RedioTab extends StatelessWidget {
   @override
@@ -20,16 +21,22 @@ class RedioTab extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             )),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Icon(
               Icons.skip_previous,
+              color: MyTheme.primaryLight,
               size: 35,
             ),
-            Icon(Icons.play_arrow, size: 50),
+            Icon(
+              Icons.play_arrow,
+              size: 50,
+              color: MyTheme.primaryLight,
+            ),
             Icon(
               Icons.skip_next,
+              color: MyTheme.primaryLight,
               size: 35,
             ),
           ],
