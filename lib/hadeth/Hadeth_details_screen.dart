@@ -33,14 +33,14 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
           margin: EdgeInsets.symmetric(
               vertical: MediaQuery.of(context).size.height * 0.06,
               horizontal: MediaQuery.of(context).size.width * 0.03),
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
               color: MyTheme.whiteColor,
               borderRadius: BorderRadius.circular(15)),
           child: ListView.builder(
             itemBuilder: ((context, index) {
               return ItemHadethDetails(
-                contant: '${args.content[index]}',
+                contant: args.content[index],
               );
             }),
             itemCount: args.content.length,

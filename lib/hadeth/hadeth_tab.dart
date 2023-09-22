@@ -30,12 +30,12 @@ class _HadethTabState extends State<HadethTab> {
         thickness: 3,
       ),
       ahadethLines.isEmpty
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Expanded(
               child: ListView.separated(
                 separatorBuilder: (context, index) {
                   return Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                   );
                 },
                 itemBuilder: (context, index) {
@@ -54,8 +54,6 @@ class _HadethTabState extends State<HadethTab> {
         await rootBundle.loadString('assets/files/hadeth.txt');
     List<String> hadethlist = hadethContant.split('#\r\n');
     for (int i = 0; i < hadethlist.length; i++) {
-      print(hadethlist[i]);
-      print('--------------');
       List<String> hadethLines = hadethlist[i].split('\n');
       String title = hadethLines[0];
       hadethLines.removeAt(0);
