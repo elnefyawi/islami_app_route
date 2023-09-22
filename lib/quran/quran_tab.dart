@@ -139,9 +139,8 @@ class QuranTab extends StatelessWidget {
         Expanded(
           child: ListView.separated(
             separatorBuilder: (context, index) {
-              return Divider(
-                color: Theme.of(context).primaryColor,
-                thickness: 3,
+              return Container(
+                margin: EdgeInsets.all(10),
               );
             },
             itemBuilder: (context, index) {
