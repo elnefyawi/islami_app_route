@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app_route_1/my_theme.dart';
+import 'package:islami_app_route_1/provider/app_config_provider.dart';
 import 'package:islami_app_route_1/quran/item_sura_details.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = 'sura-details';
@@ -16,17 +18,24 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
-
+    var provider = Provider.of<AppConfigProvider>(context);
     if (verses.isEmpty) {
       loadFile(args.index);
     }
     return Stack(children: [
-      Image.asset(
-        'assets/images/main_background.png',
-        width: double.infinity,
-        height: double.infinity,
-        fit: BoxFit.fill,
-      ),
+      provider.isDarkMode()
+          ? Image.asset(
+              'assets/images/main_back_ground_dark.png',
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.fill,
+            )
+          : Image.asset(
+              'assets/images/main_background.png',
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.fill,
+            ),
       Scaffold(
         appBar: AppBar(
           title: Text(
@@ -42,7 +51,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                     horizontal: MediaQuery.of(context).size.width * 0.03),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: MyTheme.whiteColor,
+                    color: provider.isDarkMode()
+                        ? MyTheme.primarydark
+                        : MyTheme.whiteColor,
                     borderRadius: BorderRadius.circular(15)),
                 child: ListView.builder(
                   itemBuilder: ((context, index) {
